@@ -3,6 +3,8 @@ package com.mirza.employeemanager.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import com.mirza.employeemanager.model.Employee;
 import com.mirza.employeemanager.repo.EmployeeRepo;
 
 @Service
+@Transactional
 public class EmployeeService {
 	private final EmployeeRepo employeeRepo;
 

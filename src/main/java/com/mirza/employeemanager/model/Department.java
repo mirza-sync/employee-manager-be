@@ -15,6 +15,9 @@ public class Department implements Serializable {
 	@Column(nullable = false, updatable = false)
 	private Long id;
 	private String name;
+	
+	public Department() {
+	}
 
 	public Department(Long id, String name) {
 		super();

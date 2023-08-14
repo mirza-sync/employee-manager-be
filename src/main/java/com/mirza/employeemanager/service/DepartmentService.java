@@ -1,5 +1,7 @@
 package com.mirza.employeemanager.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,9 @@ public class DepartmentService {
 
 	public Department addDepartment(Department department) {
 		return this.departmentRepo.save(department);
+	}
+	
+	public List<Department> getAllDepartments() {
+		return departmentRepo.findAll();
 	}
 }

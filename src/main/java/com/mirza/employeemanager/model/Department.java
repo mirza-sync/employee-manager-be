@@ -1,12 +1,17 @@
 package com.mirza.employeemanager.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Department implements Serializable {
@@ -15,6 +20,10 @@ public class Department implements Serializable {
 	@Column(nullable = false, updatable = false)
 	private Long id;
 	private String name;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "employee_dept_id", referencedColumnName = "id")
+	private List<Employee> employees = new ArrayList<>();
 	
 	public Department() {
 	}

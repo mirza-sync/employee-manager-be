@@ -20,11 +20,11 @@ public class Department implements Serializable {
 	@Column(nullable = false, updatable = false)
 	private Long id;
 	private String name;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "employee_dept_id", referencedColumnName = "id")
 	private List<Employee> employees = new ArrayList<>();
-	
+
 	public Department() {
 	}
 
@@ -50,8 +50,18 @@ public class Department implements Serializable {
 		this.name = name;
 	}
 
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", name=" + name + "]";
+		return "Department [id=" + id + ", name=" + name + ", employees=" + employees + ", getId()=" + getId()
+				+ ", getName()=" + getName() + ", getEmployees()=" + getEmployees().get(0).getName() + "]";
 	}
+
 }

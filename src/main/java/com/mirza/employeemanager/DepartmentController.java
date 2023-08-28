@@ -33,4 +33,10 @@ public class DepartmentController {
 		List<Department> departments = departmentService.getAllDepartments();
 		return new ResponseEntity<List<Department>>(departments, HttpStatus.OK);
 	}
+	
+	@GetMapping("/getDepartmentById")
+	public ResponseEntity<Department> getDepartmentById(@RequestBody Long id) {
+		Department department = departmentService.getDepartmentById(id);
+		return new ResponseEntity<Department>(department, HttpStatus.OK);
+	}
 }

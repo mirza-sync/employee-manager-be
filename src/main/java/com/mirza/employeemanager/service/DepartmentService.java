@@ -24,4 +24,8 @@ public class DepartmentService {
 	public List<Department> getAllDepartments() {
 		return departmentRepo.findAll();
 	}
+	
+	public Department getDepartmentById(Long id) {
+		return departmentRepo.getReferenceById(id);
+	}
 }

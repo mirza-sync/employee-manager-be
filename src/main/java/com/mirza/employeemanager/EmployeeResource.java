@@ -54,4 +54,10 @@ public class EmployeeResource {
 		employeeService.deleteEmployee(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@GetMapping("/employeeNoDept")
+	public ResponseEntity<List<Employee>> findEmployeesWithoutDepartment() {
+		List<Employee> employees = employeeService.findEmployeesWithoutDepartment();
+		return new ResponseEntity<>(employees, HttpStatus.OK);
+	}
 }
